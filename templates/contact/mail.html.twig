@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+    {% if app.user %}
+        <h1>Bienvenue dans votre boite mail</h1>
+        {% for mail in mails %}
+        <div class="container">
+            <div class="row">
+                <div class="col-4 border border-dark rounded-left">
+                    <h4>Information:</h4>
+                    <p>De: {{ mail.firstname }}</p>
+                    <p>Mail: {{ mail.email }}</p>
+                    <p>Numéro: 0{{ mail.phone }}</p>
+                </div>
+                <div class="col-8 border border-dark rounded-right">
+                    <p>{{ mail.content }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h1>Vous vous êtes trompez de chemin PARTEZ D'ICI!!!!!!</h1>
+    {% endif %}
+    </div>
+{% endblock %}

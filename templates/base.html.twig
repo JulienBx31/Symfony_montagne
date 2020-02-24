@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(45, 97, 22);">
+        <a class="navbar-brand ml-5" href="{{ path('home') }}">SymBlog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path('profil_s') }}">Qui suis-je ?</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path('blog') }}">Blog</a>
+              </li>
+              <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Activité
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Trekking</a>
+          <a class="dropdown-item" href="#">Randonnée</a>
+          <a class="dropdown-item" href="#">Bivouac</a>
+        </div>
+      </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path('blog') }}">Tarif</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+              </li>
+              {% if not app.user %}
+              <li class="nav-item">
+                  <a href="{{ path('security_login') }}" class="nav-link">Connexion</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ path('security_registration') }}" class="nav-link">Inscription</a>
+                </li>
+              {% else %}
+              <li class="nav-item">
+                  <a href="{{ path('mail') }}" class="nav-link">Mail</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ path('security_logout') }}" class="nav-link">Deconnexion</a>
+                </li>
+              {% endif %}
+            </ul>
+      </div>
+    </nav>
+    <div>
+        {% block body %}{% endblock %}
+    </div>
+    <footer>
+      <div class="container d-flex justify-content-center justify-content-around py-5">
+        <div class="row col-12">
+          <div class="col-3">
+            <h4 class="text-white">Jean-Dominique Boix</h4>
+            <div class="traie my-3"></div>
+            <p>Créé à Toulouse, France</p>
+            <p>© 2017-2018 Guide Montagne</p>
+          </div>
+          <div class="col-3">
+            <h4 class="text-white">Média</h4>
+            <div class="traie my-3"></div>
+            <div class="d-flex flex-column">
+              <a href="">Twitter</a>
+              <a href="">Facebook</a>
+              <a href="">Blog</a>
+            </div>
+          </div>
+          <div class="col-3">
+            <h4 class="text-white">Contact</h4>
+            <div class="traie my-3"></div>
+            <p>Contactez nous</p>
+            <p>jean-dominique.boix@laposte.net</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+        {% block javascripts %}
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {% endblock %}
+    </body>
+</html>

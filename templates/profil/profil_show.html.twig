@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item ml-5"><a href="{{ path('home') }}">Accueil</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Qui suis-je?</li>
+        </ol>
+    </nav>
+    <h1 class="title text-center my-5">Présentation</h1>
+    <hr>
+    <div class="container my-5 d-flex justify-content-around">
+         <div class="col-5 d-flex flex-column">
+            <img src="{{ asset('img/profil.jpg') }}" alt="" style="width:100%;" class="rounded">
+            <h3 class="mt-3 text-center under_title">Jean-dominique Boix</h3>
+         </div>
+         <div class="col-5 presentation">
+            <h1 class="title">Qui suis-je ?</h1>
+            <h4 class="mb-3 under_title">Accompagnateur montagne</h4>
+            <p>J'ai 58 ans et je côtoie régulièrement les montagnes depuis 38 ans... J'encadre des randonnées montagne depuis les années 1990 et je suis diplômé du Brevet d'état Alpinisme Accompagnateur Montagne depuis 2002...<br>Après une parenthèse de 4 ans dans les Alpes, dans le massif des Ecrins, j'exerce sur la Chaine Pyrénéennes essentiellement en Ariège, Hautes Pyrénées, Haut Aravon et Val d'Aran.</p>         </div>
+    </div>
+    <div class="container-fluid portfolio">
+        <div class="row">
+        <h1 class="col-12 text-center my-5 title">Portfolio</h1>
+            <div class="col-12 d-flex mb-5 d-flex justify-content-center">
+                <div class="col-5">
+                    <img src="{{ asset('img/nepal.jpg') }}" alt="" style="width: 100%;">
+                </div>
+                <div class="col-5 d-flex flex-column">
+                    <h3>Nepal</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque est, natus ipsa ab ullam ad neque repellendus quod maxime corporis. Vero, vel harum ad atque, officia vitae iusto nisi earum maiores ea reiciendis laudantium ipsa ratione deleniti commodi aliquam dignissimos! Dolorem amet accusantium quas, et adipisci tempora sunt! Mollitia dolores ea beatae odio in commodi facere repudiandae dolorem, error voluptatum corrupti optio aspernatur dignissimos voluptas quibusdam nihil dolore nemo, blanditiis fuga suscipit necessitatibus enim sunt laborum. At voluptas quisquam tempora. Maiores non minus voluptatibus eos? Ipsum fuga quaerat, incidunt quo exercitationem unde odio ex sint maxime placeat est. Beatae, fugiat!</p>
+                </div>
+            </div>
+            <div class="col-12 d-flex mb-5 d-flex justify-content-center">
+                <div class="col-5">
+                    <h3>Nepal</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque est, natus ipsa ab ullam ad neque repellendus quod maxime corporis. Vero, vel harum ad atque, officia vitae iusto nisi earum maiores ea reiciendis laudantium ipsa ratione deleniti commodi aliquam dignissimos! Dolorem amet accusantium quas, et adipisci tempora sunt! Mollitia dolores ea beatae odio in commodi facere repudiandae dolorem, error voluptatum corrupti optio aspernatur dignissimos voluptas quibusdam nihil dolore nemo, blanditiis fuga suscipit necessitatibus enim sunt laborum. At voluptas quisquam tempora. Maiores non minus voluptatibus eos? Ipsum fuga quaerat, incidunt quo exercitationem unde odio ex sint maxime placeat est. Beatae, fugiat!</p>
+                </div>
+                <div class="col-5 d-flex flex-column">
+                    <img src="{{ asset('img/nepal.jpg') }}" alt="" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

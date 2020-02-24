@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formContact 'bootstrap_4_layout.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+    <h1 class="mb-5">Contact</h1>
+    {{ form_start(formContact) }}
+    
+        {{ form_row(formContact.firstname, {'attr': {'placeholder': "Prenom/nom"}}) }}
+        {{ form_row(formContact.email, {'attr': {'placeholder': "ex: toto@gmail.com"}}) }}
+        {{ form_row(formContact.phone, {'attr': {'placeholder': "Numero de telephone"}}) }}
+        {{ form_row(formContact.content, {'attr': {'placeholder': "Votre demande"}}) }}
+    
+        <button type="submit" class="btn btn-success">Ajouter l'article</button>
+    
+        {{ form_end(formContact) }}
+    </div>
+{% endblock %}

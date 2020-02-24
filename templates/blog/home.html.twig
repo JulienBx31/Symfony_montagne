@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <header>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="{{ asset('img/header_video.mp4') }}" type="video/mp4">
+  </video>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">Boix Jean-dominique</h1>
+        <p class="lead mb-0">Accompagnateur montagne</p>
+        <button class="btn_white mb-0 lead mt-3">Réservez dès maintenant</button>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container d-flex justify-content-center justify-content-between mt-5 flex-column">
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center justify-content-between align-items-center">
+                <div class="col-lg-6 d-flex flex-column">
+                    <h1 class="mb-5">TREKKING</h1>
+                    <p>Vivez l’aventure ! Prendre son temps en montagne, profiter de chaque instant, ne pas se soucier du lendemain, être en harmonie avec son environnement, changer d’horizon, aller voir d’autres cultures et découvrir les montagnes d’ailleurs. S’évader tout simplement ! Ici, dans les Pyrenées, en Europe ou dans le monde, été comme hiver, partez à l’aventure !</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card1"></div>
+                </div>
+            </div>
+            <div class="col-lg-12 d-flex justify-content-center justify-content-between align-items-center">
+                <div class="col-lg-6">
+                    <div class="card2"></div>
+                </div>
+                <div class="col-lg-6 d-flex flex-column">
+                    <h1 class="mb-5">Randonnée</h1>
+                    <p>De belles randos adaptées à votre niveau et vos envies ! Traverser ces belles estives fleuries, s’arrêter pour observer des isards, des marmottes ou un gypaète barbu, se rafraichir au bord d’un cours d’eau, pique­niquer autour d’un étang d’un bleu turquoise, gravir des hauts sommets aux panoramas à couper le souffle. C’est ce milieu que je vous propose de découvrir, à votre rythme et selon vos envies.</p>
+                </div>
+            </div>
+            <div class="col-lg-12 d-flex justify-content-center justify-content-between align-items-center">
+                <div class="col-lg-6 d-flex flex-column">
+                    <h1 class="mb-5">Bivouac</h1>
+                    <p>Une nuit en montagne. Profiter des derniers rayons de soleil, voir le ciel rougir, faire une belle flambée et cuisiner au coin du feu, dormir à la belle étoile ou dans une cabane pastorale, se sentir tout petit face à ce vaste monde sauvage qui nous entoure. Écouter le hululement de la chouette, le craquement des arbres, le crépitement des braises et par moment ce profond silence. Sentir les premiers rayons de soleil du matin réchauffer notre corps et illuminer les splendeurs qui nous entourent. Quoi de plus agreable que de passer une nuit en montagne !</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-accroch">
+        <div class="accroch mt-5 d-flex justify-content-center align-items-center flex-column">
+            <h2 class="text-white">Decouvrez des paysages sublimes</h2>
+            <button class="btn_white mb-0 lead mt-3">Voir plus</button>
+        </div>
+    </div>
+    <div class="container mt-5">
+      <div class="row">
+        <h1 class="col-lg-12 text-center mb-5">En résumé...</h1>
+        <div class="col-md-12 col-lg-4 d-flex flex-column">
+            <a href=""><img src="{{ asset('img/card1.jpg') }}"alt="" class="img-fluid"></a>
+            <h3 class="my-3">Esprit montagne</h3>
+            <p>Partez à la découverte, immergez vous dans la nature, profitez des parfums, de la luminosité pure, des sons de la rocaille sous vos pieds, prenez le pouls de la Terre et mettez vous en résonance avec les éléments! Le vent dans les cheveux...</p>
+        </div>
+        <div class="col-md-12 col-lg-4 d-flex flex-column">
+            <a href=""><img src="{{ asset('img/card2.jpg') }}" alt="" class="img-fluid"></a>
+            <h3 class="my-3">Offre des randonnées</h3>
+            <p>Des sorties faciles (moins de 1000m) à sportive (2000m pour certains sommet) avec nuit en refuge pour certaines. En raquettes l'hiver et parfois hors sentier et en été de grand sommet (3000m) facile dans les Pyrénées et Trekking d'une semaine pour avoir le temps de decouvrir un massif... <a href="{{ path('home') }}">Voir plus</a></p>
+        </div>
+        <div class="col-md-12 col-lg-4 d-flex flex-column">
+            <a href=""><img src="{{ asset('img/profil.jpg') }}" alt="" class="img-fluid"></a>
+            <h3 class="my-3">Accompagnateur</h3>
+            <p>J'ai 58 ans et je côtoie régulièrement les montagnes depuis 38 ans... J'encadre des randonnées montagne depuis les années 1990 et je suis diplômé du Brevet d'état Alpinisme Accompagnateur Montagne depuis 2002... <a href="{{ path('profil_s') }}">Voir plus</a></p>
+        </div>
+      </div>
+    </div>
+{% endblock %}

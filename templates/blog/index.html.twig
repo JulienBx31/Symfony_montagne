@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item ml-5"><a href="{{ path('home') }}">Accueil</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Blog</li>
+    </ol>
+</nav>
+
+<h1 class="text-center my-5 title">Mes articles</h1>
+<hr>
+<div class="container d-flex justify-content-center">
+    {% if app.user %}
+        <a class="nav-link btn btn-primary col-2 mt-5" href="{{ path('blog_create') }}">Créer un article</a>
+    {% endif %}
+</div>
+
+<section class="articles mb-5">
+    <article class="container">
+        <div class="row col-12 justify-content-around">
+            {% for article in articles %}
+                    <div class="card mt-5" style="width: 30rem;">
+                        <img class="card-img-top" src="{{ article.image }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.title }}</h5>
+                            <p>Ecrit le {{ article.createAt | date('d/m/Y') }} à {{ article.createAt | date('H:i') }} dans la catégorie {{ article.category.title }}</p>
+                            <p class="card-text">{{ article.content | raw | slice(0, 300)}}...</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ path('blog_show', {'id': article.id}) }}" class="btn_black card-btn-bottom">Lire la suite</a>
+                            {% if app.user %}
+                                <a href="{{ path('blog_edit', {'id': article.id}) }}" class="btn_black card-btn-bottom">Modifier</a>
+                            {% endif %}
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>
+    </article>
+</section>
+
+{% endblock %}

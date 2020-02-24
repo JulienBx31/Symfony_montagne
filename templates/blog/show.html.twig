@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <article class="container d-flex justify-content-center mb-5">
+        <div class="card">
+                <img class="card-img-top" src="{{ article.image }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p>Ecrit le {{ article.createAt | date('d/m/Y') }} à {{ article.createAt | date('H:i') }} dans la catégorie {{ article.category.title }}</p>
+                    <p class="card-text">{{ article.content | raw }}</p>
+                </div>
+            </div>
+    </article>
+
+    <section id="commentaires" class="container d-flex justify-content-center flex-column">
+    <h1>{{ article.comments | length }}commentaires:</h1>
+        {% for comment in article.comments %}
+        <div class="comment mb-5">
+            <div class="row">
+                <div class="col-3">
+                    {{ comment.author }} le <small>{{ comment.createdAt | date('d/m/Y à H:i') }}</small>
+                </div>
+                <div class="col">
+                    {{ comment.content | raw }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% if app.user %}
+        {{ form_start(commentForm) }}
+        {{ form_row(commentForm.author, {'attr': {'placeholder': "Votre nom"}}) }}
+        {{ form_row(commentForm.content, {'attr': {'placeholder': "Votre commentaire"}}) }}
+        <button type="submit" class="btn btn-success">Commenter !</button>
+        {{ form_end(commentForm) }}
+        {% else %}
+        <h2>Vous ne pouvez pas commenter si vous n'êtes pas connecté ! </h2>
+        <a href="{{ path('security_login') }}" class="btn btn-primary">Connexion</a>
+        {% endif %}
+    </section>
+{% endblock %}
